@@ -23,8 +23,9 @@ var config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  externals: {
-  },
+  externals: [
+    'node-fetch', 'readline'
+  ],
   plugins: [
   ],
   target: 'node'
