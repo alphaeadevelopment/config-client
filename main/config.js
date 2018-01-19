@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import parseProperties from './parse-properties';
 
 class Config {
 
