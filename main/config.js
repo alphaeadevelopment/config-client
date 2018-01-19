@@ -8,7 +8,7 @@ class Config {
   init(url, app, profile, label) {
     const self = this;
     return new Promise((res, rej) => {
-      fetch(`${this.url}/${app}${profile ? `-${profile}` : ''}${label ? `-${label}` : ''}.properties`)
+      fetch(`${url}/${app}${profile ? `-${profile}` : ''}${label ? `-${label}` : ''}.properties`)
         .then(d => d.body)
         .then(b => {
           return new Promise((res2, rej2) => {
