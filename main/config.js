@@ -2,11 +2,10 @@ import fetch from 'node-fetch';
 
 class Config {
 
-  constructor(url) {
+  constructor() {
     this.props = {};
-    this.url = url;
   }
-  init(app, profile, label) {
+  init(url, app, profile, label) {
     const self = this;
     return new Promise((res, rej) => {
       fetch(`${this.url}/${app}${profile ? `-${profile}` : ''}${label ? `-${label}` : ''}.properties`)
