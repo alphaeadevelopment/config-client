@@ -24,7 +24,7 @@ var config = {
     extensions: ['.js', '.jsx'],
   },
   externals: [
-    'node-fetch', 'readline'
+    'node-fetch', 'readline', 'react'
   ],
   plugins: [
   ],
