@@ -14,7 +14,6 @@ export default Wrapped => (application) => {
     componentDidMount() {
       loadConfig('http://config-server-test.alphaea.uk', application, process.env.ENV)
         .then((config) => {
-          debugger;
           configService.setConfig(config);
           this.setState({ config });
         });
