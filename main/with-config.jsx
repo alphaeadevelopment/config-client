@@ -5,23 +5,20 @@ import configService from './config-service';
 
 export default Wrapped => (application) => {
   class HocComponent extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        config: {},
-      };
-    }
     componentDidMount() {
-      loadConfig('http://config-server-test.alphaea.uk', application, process.env.ENV)
+      loadConfig(application, process.env.ENV)
         .then((config) => {
           configService.setConfig(config);
-          this.setState({ config });
-        });
+        })
+        .catch((e) => {
+          console.error('Failed to contact config server at %s', configServer);
+          console.error('Error: %s', e.message);
+        })
     }
     render() {
       return (
         <div>
-          <Wrapped config={this.state.config} {...this.props} />
+          <Wrapped {...this.props} />
         </div>
       );
     }

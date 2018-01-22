@@ -6,7 +6,9 @@ const parseProps = (t) => {
   return parseProperties(lines);
 };
 
-export default (url, app, profile, label) => {
+export default (app, profile, label) => {
+  const url = process.env.CONFIG_SERVER;
+  if (!url) "missing env variable CONFIG_SERVER";
   return new Promise((res, rej) => {
     fetch(`${url}/${app}${profile ? `-${profile}` : ''}${label ? `-${label}` : ''}.properties`)
       .then(d => d.text())
